@@ -1,0 +1,222 @@
+$admin-header-height: 80px;
+$admin-footer-height: 40px;
+$admin-nav-width: 300px;
+
+:root{
+    --bg-color: #e5e5e5;
+    
+    --bcn-blue: #315096;
+    --bcn-blue-grey: #606060;
+    
+}
+
+body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+
+.admin {
+    --spacing: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    display: grid;
+    height: 100vh;
+
+    grid-template-rows: $admin-header-height 1fr $admin-footer-height;
+    grid-template-columns: $admin-nav-width 1fr;
+    grid-template-areas:
+        "header header"
+        "nav    main"
+        "footer footer";
+
+    &__header {
+        display: flex;
+        flex-basis: 100%;
+        grid-area: header;
+        height: $admin-header-height;
+        background-color: #fff;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        position: relative;
+    }
+
+    &__nav {
+        flex: 0 0 $admin-nav-width;
+        grid-area: nav;
+        background-color: #313541;
+    }
+
+    &__main {
+        flex: 1;
+        grid-area: main;
+        padding: var(--spacing);
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        background-color: var(--bg-color);
+    }
+
+    &__footer {
+        display: flex;
+        grid-area: footer;
+        flex-basis: 100%;
+        justify-content: space-between;
+        align-items: center;
+        height: $admin-footer-height;
+        padding: 0 var(--spacing);
+        color: #4e5561;
+        background-color: #1d2127;
+    }
+
+    @media screen and (min-width: 48rem) {
+        --spacing: 2rem;
+    }
+}
+
+.dashboard {
+    --column-count: 2;
+
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 calc(var(--spacing) * -0.5);
+
+    display: grid;
+    grid-template-columns: repeat(var(--column-count), 1fr);
+    grid-gap: var(--spacing);
+
+    &__item {
+        flex: 1 1 50%;
+        grid-column-end: span 2;
+        padding: calc(var(--spacing) / 2);
+
+        &--full {
+            flex-basis: 100%;
+            grid-column: 1 / -1;
+        }
+
+        &--col {
+            flex-basis: calc(100% / var(--column-count));
+            grid-column-end: span 1;
+        }
+    }
+
+    @media screen and (min-width: 48rem) {
+        --column-count: 4;
+    }
+
+    @supports (display: grid) {
+        margin: 0;
+
+        &__item {
+            padding: 0;
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+  
+    &:visited, &:focus, &:hover {
+      text-decoration: none;
+    }
+  }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.logo {
+    display: flex;
+    flex: 0 0 $admin-nav-width;
+    height: $admin-header-height;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0;
+    color: #fff;
+    background-color: var(--bcn-blue);
+    font-size: 1rem;
+
+    h1 {
+        margin: 0;
+    }
+}
+
+.toolbar {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--spacing);
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+
+    &__title {
+        display: block;
+        padding: 2rem 2rem .5rem;
+        color: #76808f;
+        font-weight: 700;
+    }
+    
+    &__divider::before {
+        content: "";
+        display: block;
+        width: calc(100% - 60px);
+        height: 2px;
+        margin: 30px 30px 40px;
+        background-color: #76808f;
+    }
+
+    &__item {
+    }
+
+    &__link {
+        display: block;
+        padding: 10px 30px;
+        color: #76808f;
+        text-decoration: none;
+        
+        &:hover,
+        &:focus {
+            color: currentcolor;
+            background-color: var(--bcn-blue-grey);
+        }
+    }
+}
+
+.card {
+    height: 100%;
+    font-weight: 300;
+    background-color: #fff;
+    border: 1px solid #e6eaee;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    &__header {
+        padding: 20px 30px;
+        border-bottom: 1px solid #e6eaee;
+        font-weight: 700;
+    }
+    
+    &__item {
+        padding: 20px 30px;
+    }
+}
+
+.btn {
+    display: inline-block;
+    border-radius: 5em;
+    border: 0;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+
+    &--primary {
+        color: #fff;
+        background-color: rgb(203, 202, 202);
+    }
+}
