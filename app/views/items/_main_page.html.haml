@@ -42,7 +42,8 @@
         %li.menu__item
           %a.menu__link{:href => "#"} Account Details
         %li.menu__item
-          %a.menu__link{:href => "#"} Account Settings
+          = link_to edit_user_path(current_user) do
+            .menu__link アカウント編集
         / <li class="menu__divider"></li>
 
     %main.admin__main
