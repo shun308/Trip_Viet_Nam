@@ -1,5 +1,5 @@
-.row
-  .col-lg-4.col-md-6.ml-auto.mr-auto
+.card.col-sm-6.mx-auto.mt-5
+  .card-body
     %h2.text-center= t('.forgot_your_password')
     = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
       = devise_error_messages!
@@ -8,6 +8,6 @@
       .form-group
         = f.email_field :email, autofocus: true, placeholder: 'Email Address', class: 'form-control'
       .form-group
-        = f.submit t('.send_me_reset_password_instructions'), class: 'btn btn-primary btn-block btn-lg'
+        = f.submit t('.send_me_reset_password_instructions'), class: 'btn btn-primary'
     .text-center
       = render "devise/shared/links"

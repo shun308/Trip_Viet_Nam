@@ -1,8 +1,6 @@
-.row
-  .col-lg-4.col-md-6.ml-auto.mr-auto
-    %h1
-      Edit #{resource_name.to_s.humanize}
-    %hr/
+.card.col-sm-6.mx-auto.mt-5
+  .card-body
+    %h3.mt-1.mb-3 アカウントを編集
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
       = devise_error_messages!
       .form-group
@@ -31,11 +29,9 @@
         %br/
         = f.password_field :current_password, autocomplete: "off", class: 'form-control'
       .form-group
-        = f.submit t('.update'), class: 'btn btn-lg btn-block btn-primary'
+        = f.submit t('.update'), class: 'btn btn-primary'
     %hr/
-    %h2= t('.cancel_my_account')
-    %p
-      = t('.unhappy')
-      = button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete
-    = link_to t('devise.shared.links.back'), :back
+    = button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class: 'btn btn-light btn-block border mt-1'
+    %hr/
+    = link_to t('devise.shared.links.back'), :back, class: 'btn btn-secondary'
     %hr/

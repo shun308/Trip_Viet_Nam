@@ -1,28 +1,21 @@
-.row
-  .col-lg-4.col-md-6.ml-auto.mr-auto
-    %h1.text-center= t('.sign_up')
-    %hr/
+.card.col-sm-6.mx-auto.mt-5
+  .card-body
+    %h3.mt-1.mb-3 アカウントを作成
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = devise_error_messages!
       .form-group
         = f.label :name
-        %br/
         = f.text_field :name, autofocus: true, class: 'form-control'
       .form-group
-        = f.label :email
-        %br/
-        = f.email_field :email, autofocus: false, class: 'form-control'
+        = f.label :email, "メールアドレス", class: "form-label"
+        = f.email_field :email, autocomplete: "email", class: "form-control"
       .form-group
-        = f.label :password
-        - if @minimum_password_length
-          %em= t('devise.shared.minimum_password_length', count: @minimum_password_length)
-        %br/
-        = f.password_field :password, autocomplete: "off", class: 'form-control'
+        = f.label :password, "パスワード (%s文字以上)" %@minimum_password_length, class: "form-label"
+        = f.password_field :password, class: "form-control"
       .form-group
-        = f.label :password_confirmation
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
-      .form-group
-        = f.submit t('.sign_up'), class: "btn btn-primary btn-block btn-lg"
-    .text-center
-      = render "devise/shared/links"
+        = f.label :password_confirmation, "もう一度パスワードを入力してください", class: "form-label"
+        = f.password_field :password_confirmation, class: "form-control"
+      .actions
+        = f.submit "アカウントを作成する", class: "btn btn-light btn-block border mt-1"
+    .mt-2
+      すでにアカウントをお持ちですか？#{link_to "ログイン", new_user_session_path}

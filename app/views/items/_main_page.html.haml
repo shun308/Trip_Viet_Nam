@@ -2,7 +2,7 @@
   .admin
     %header.admin__header
       .logo
-        %h1 Tineg Viet
+        %h1 TIENG VIET
       .toolbar
         .toolbar__left
           .btn.btn--primary Add Favorite
@@ -15,7 +15,7 @@
             .btn.fab.fa-facebook-square{style:"padding:0 10px 0 0;font-size:30px;color:#315096;"}
           =link_to"http://line.me/R/msg/text/?###url###",{onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
             .btn.fab.fa-line{style:"padding:0 10px 0 0;font-size:30px;color:#00c300;"}
-          .btn.btn--primary.logout{:href => "#"} Log Out
+          = link_to "ログアウト",destroy_user_session_path,method: :delete, class: "btn btn--primary"
     %nav.admin__nav
       %ul.menu
         %li.menu__title Content
@@ -40,10 +40,9 @@
         / <li class="menu__divider"></li>
         %li.menu__title Account
         %li.menu__item
-          %a.menu__link{:href => "#"} Account Details
+          = link_to "アカウント作成",new_registration_path(current_user), class: "menu__link"
         %li.menu__item
-          = link_to edit_user_path(current_user) do
-            .menu__link アカウント編集
+          = link_to "アカウント編集", edit_registration_path(current_user), class: "menu__link"
         / <li class="menu__divider"></li>
 
     %main.admin__main

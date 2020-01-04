@@ -116,10 +116,11 @@ body {
 }
 
 a {
-    text-decoration: none;
-  
+
     &:visited, &:focus, &:hover {
       text-decoration: none;
+      color: #fff;
+
     }
   }
 
@@ -138,7 +139,8 @@ img {
     margin: 0;
     color: #fff;
     background-color: var(--bcn-blue);
-    font-size: 1rem;
+    font-size: 30px;
+    font-family: inherit;
 
     h1 {
         margin: 0;

@@ -1,5 +1,5 @@
-.row
-  .col-lg-4.col-md-6.ml-auto.mr-auto
+.card.col-sm-6.mx-auto.mt-5
+  .card-body
     %h2.text-center= t('.change_your_password')
     = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
       = devise_error_messages!
