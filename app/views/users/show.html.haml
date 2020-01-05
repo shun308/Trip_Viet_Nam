@@ -1,0 +1,15 @@
+%table
+  %thead
+    %tr
+      %th 日本語
+      %th ベトナム語
+      %th 発音
+      %th 削除
+  %tbody
+  - @user.items.each_with_index do |item, i|
+    %tr
+      %td= item.japanese
+      %td= item.vietnamese
+      %td= item.intonation
+      %td= link_to "削除",favorite_path(@favorites[i][:id]), method: :delete
+= paginate(@items)

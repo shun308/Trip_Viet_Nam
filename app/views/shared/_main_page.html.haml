@@ -5,7 +5,7 @@
         %h1 TIENG VIET
       .toolbar
         .toolbar__left
-          .btn.btn--primary Add Favorite
+          =link_to "Favorite", users_path, class:"btn btn--primary"
       %form.form-inline.my-2.my-lg-0
         %input.form-control.mr-sm-2{"aria-label" => "Search",placeholder:"Search",type:"search"}
         =link_to "https://www.youtube.com/?gl=JP&hl=ja" do
@@ -20,7 +20,7 @@
       %ul.menu
         %li.menu__title Content
         %li.menu__item
-          %a.menu__link{:href => "#"} Media
+          = link_to "場面別", "items/home",class:"menu__link"
         %li.menu__item
           %a.menu__link{:href => "#"} Templates
         / <li class="menu__divider"></li>
