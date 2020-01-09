@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     end
   end
   #個人ページからお気に入りを削除する
-  resources :favorites
+  resources :favorites 
 end

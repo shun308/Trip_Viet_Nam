@@ -2,45 +2,47 @@
   .admin
     %header.admin__header
       .logo
-        %h1 TIENG VIET
+        %h1 VITNAMESE
       .toolbar
         .toolbar__left
-          =link_to "Favorite", users_path, class:"btn btn--primary"
+          =link_to "お気に入り", users_path, class:"btn btn--primary"
       %form.form-inline.my-2.my-lg-0
         %input.form-control.mr-sm-2{"aria-label" => "Search",placeholder:"Search",type:"search"}
-        =link_to "https://www.youtube.com/?gl=JP&hl=ja" do
+        =link_to "#" do
           %button.btn.btn-outline-success.my-2.my-sm-0{type:"submit"} Search
         .toolbar__right
           =link_to"https://www.facebook.com/sharer/sharer.php?u=###url###", {onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
             .btn.fab.fa-facebook-square{style:"padding:0 10px 0 0;font-size:30px;color:#315096;"}
           =link_to"http://line.me/R/msg/text/?###url###",{onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
             .btn.fab.fa-line{style:"padding:0 10px 0 0;font-size:30px;color:#00c300;"}
+            /=link_to"https://twitter.com/intent/tweet?text&related=TwitterJP ",{onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
+            /.btn.fab.fa-twitter{style:"padding:0 10px 0 0;font-size:30px;color:#00acee;"}
           = link_to "ログアウト",destroy_user_session_path,method: :delete, class: "btn btn--primary"
     %nav.admin__nav
       %ul.menu
-        %li.menu__title Content
+        %li.menu__title Word
         %li.menu__item
-          = link_to "場面別", "items/home",class:"menu__link"
+          = link_to "単語集", "items/home",class:"menu__link"
         %li.menu__item
-          %a.menu__link{:href => "#"} Templates
+          %a.menu__link{:href => "#"} 会話 文章集
         / <li class="menu__divider"></li>
-        %li.menu__title Content
+        %li.menu__title note
         %li.menu__item
-          %a.menu__link{:href => "#"} Media
+          %a.menu__link{:href => "#"} メモ帳
         %li.menu__item
-          %a.menu__link{:href => "#"} Templates
+          %a.menu__link{:href => "#"} 課題
         / <li class="menu__divider"></li>
-        %li.menu__title Network
+        %li.menu__title problem
         %li.menu__item
-          %a.menu__link{:href => "#"} Players
+          %a.menu__link{:href => "#"} 練習問題
         %li.menu__item
-          %a.menu__link{:href => "#"} Channels
+          %a.menu__link{:href => "#"} ランダム問題（単語）
         %li.menu__item
-          %a.menu__link{:href => "#"} Domains
+          %a.menu__link{:href => "#"} ランダム問題（会話、文章）
         / <li class="menu__divider"></li>
         %li.menu__title Account
         %li.menu__item
-          = link_to "アカウント作成",new_registration_path(current_user), class: "menu__link"
+          = link_to "ベトナムの歴史", "https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%88%E3%83%8A%E3%83%A0%E3%81%AE%E6%AD%B4%E5%8F%B2",class:"menu__link"
         %li.menu__item
           = link_to "アカウント編集", edit_registration_path(current_user), class: "menu__link"
         / <li class="menu__divider"></li>

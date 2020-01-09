@@ -7,6 +7,6 @@ class ItemsController < ApplicationController
   def show
     @items = Item.all
     #ページネーション
-    @items = Item.page(params[:page]).per(10)
+    @items = Item.page(params[:page]).per(15)
   end
 end

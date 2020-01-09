@@ -2,7 +2,6 @@
   .card-body
     %h3.mt-1.mb-3 ログイン
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      = devise_error_messages!
       .form-group
         = f.label :email, "メールアドレス", class: "form-label"
         = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"

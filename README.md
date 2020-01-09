@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Trip Viet Nam DB設計
 
-Things you may want to cover:
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|index: true, null: false, unique: true|
+|email|string|null: false|
+|encrypted_password|string|null: false|
 
-* Ruby version
+### Association
+- has_many :favorites
+- has_many :items, through: :favorites
 
-* System dependencies
+## itemsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|japanese|string||
+|vietnamese|string||
+|intonation|string||
 
-* Configuration
+### Association
+- has_many :favorites
+- has_many :users, through: :favorites
 
-* Database creation
+## favoritesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|bigint|null: false|
+|item_id|bigint|null: false|
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :user
+- belongs_to :item

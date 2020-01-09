@@ -19,7 +19,7 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.find(params[:id])
     if @favorite.destroy
       #削除に成功した場合、ログインしているユーザの詳細画面に戻る
-      redirect_to users_path(current_user)
+      redirect_to users_path
     end
   end
 end
