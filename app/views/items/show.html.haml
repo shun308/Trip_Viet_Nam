@@ -1,1 +1,20 @@
-= render "home"
+%table
+  =link_to "戻る", root_path, class:"btn btn-secondary"
+  =link_to "お気に入り", users_path, class:"btn btn-secondary"
+  %thead
+    %tr 
+      %th 登録
+      %th 日本語
+      %th ベトナム語
+      %th 発音
+  %tbody
+  - @items.each do |item|
+    %tr
+      / お気に入り登録ボタン ルートに従いパスを記述、POSTメソッドに指定
+      %td= link_to "登録", add_item_path(item), method: :post, class:"fas fa-star", style:"color:gold;"
+      / 本の詳細へのリンク
+      %td= item.japanese
+      %td= item.vietnamese
+      %td= item.intonation
+= paginate(@items)
+/ページネーション

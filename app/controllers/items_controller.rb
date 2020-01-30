@@ -9,4 +9,7 @@ class ItemsController < ApplicationController
     #ページネーション
     @items = Item.page(params[:page]).per(15)
   end
+
+  def conversation
+  end
 end

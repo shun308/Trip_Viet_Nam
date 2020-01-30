@@ -1,5 +1,7 @@
 class FavoritesController < ApplicationController
-
+  def index
+  end
+  
   def create
     @user_id = current_user.id #ログインしたユーザのID
     @item_id = Item.find(params[:id]).id #特定のitemのID
