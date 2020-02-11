@@ -1,15 +1,14 @@
 class ItemsController < ApplicationController
-  
   def index
-    @items = Item.all
+    @search = Item.ransack(params[:q])
   end
 
   def show
-    @items = Item.all
     #ページネーション
     @items = Item.page(params[:page]).per(15)
   end
 
   def conversation
+    @items = Item.page(params[:page]).per(15)
   end
 end

@@ -2,14 +2,14 @@
   .admin
     %header.admin__header
       .logo
-        %h1 VIETNAMESE
+        %h1 TRIP VIETNAM
       .toolbar
         .toolbar__left
-          =link_to "お気に入り", users_path, class:"btn btn--primary"
-      %form.form-inline.my-2.my-lg-0
-        %input.form-control.mr-sm-2{"aria-label" => "Search",placeholder:"Search",type:"search"}
-        =link_to "#" do
-          %button.btn.btn-outline-success.my-2.my-sm-0{type:"submit"} Search
+          =link_to "お気に入り単語", users_path, class:"btn btn-info"
+      .form-inline.my-2.my-lg-0
+        = search_form_for @search, url: favorites_path do |f|
+          = f.text_field :japanese_cont ,placeholder: '日本語から検索....',class: "form-control mr-sm-2"
+          = f.submit ("検索") , class:"btn btn-outline-success my-2 my-sm-0",style:"margin-right:40px;"
         .toolbar__right
           =link_to"https://www.facebook.com/sharer/sharer.php?u=###url###", {onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
             .btn.fab.fa-facebook-square{style:"padding:0 10px 0 0;font-size:30px;color:#315096;"}
@@ -17,14 +17,14 @@
             .btn.fab.fa-line{style:"padding:0 10px 0 0;font-size:30px;color:#00c300;"}
             /=link_to"https://twitter.com/intent/tweet?text&related=TwitterJP ",{onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
             /.btn.fab.fa-twitter{style:"padding:0 10px 0 0;font-size:30px;color:#00acee;"}
-          = link_to "ログアウト",destroy_user_session_path,method: :delete, class: "btn btn--primary"
+          = link_to "ログアウト",destroy_user_session_path,method: :delete, class: "btn btn-dark"
     %nav.admin__nav
       %ul.menu
         %li.menu__title Word
         %li.menu__item
-          = link_to "単語集",item_path(@items),class:"menu__link"
+          = link_to "単語集","items/items",class:"menu__link"
         %li.menu__item
-          = link_to "会話 文章集", conversation_item_path(@items),class:"menu__link"
+          = link_to "会話 文章集", "items/conversation",class:"menu__link"
         / <li class="menu__divider"></li>
         %li.menu__title note
         %li.menu__item

@@ -1,5 +1,7 @@
 class FavoritesController < ApplicationController
   def index
+    @search = Item.ransack(params[:q]) #ransackメソッド推奨
+    @search_items = @search.result
   end
   
   def create
@@ -9,10 +11,12 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.new(item_id: @item_id, user_id: @user_id)
     if @favorite.save
       #保存に成功した場合、item一覧画面に戻る
-      redirect_to item_path
+      flash[:notice] = "登録しました！"
+      redirect_back(fallback_location: item_path)
     else
       #重複して保存しようとした場合
-      redirect_to item_path
+      flash[:notice] = "※登録済みです"
+      redirect_back(fallback_location: item_path)
     end
   end
 
@@ -21,6 +25,7 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.find(params[:id])
     if @favorite.destroy
       #削除に成功した場合、ログインしているユーザの詳細画面に戻る
+      flash[:notice] = "削除しました"
       redirect_to users_path
     end
   end

@@ -1,6 +1,6 @@
 %table
-  = link_to "戻る", root_path, class:"btn btn-secondary"
-  = link_to "単語集", "items/home", class:"btn btn-secondary"
+  =link_to "戻る", root_path, class:"btn btn-dark", style:"margin:30px;"
+  =link_to "お気に入り", users_path, class:"btn btn-info"
   %thead
     %tr
       %th 日本語
@@ -14,3 +14,6 @@
       %td= item.vietnamese
       %td= item.intonation
       %td= link_to "削除", favorite_path(@favorites[i][:id]), method: :delete, class:"fas fa-cut",style:"color:red;"
+  - if flash[:notice]
+    .flash{style:"font-size:30px;color:red;margin-left:100px;"}
+      = flash[:notice]

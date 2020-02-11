@@ -6,7 +6,7 @@ $admin-nav-width: 300px;
     --bg-color: #e5e5e5;
     
     --bcn-blue: #315096;
-    --bcn-blue-grey: #606060;
+    --bcn-blue-grey: lightgrey;
     
 }
 
@@ -181,7 +181,7 @@ img {
     &__link {
         display: block;
         padding: 10px 30px;
-        color: #76808f;
+        color: white;
         text-decoration: none;
         
         &:hover,
