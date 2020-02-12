@@ -1,0 +1,15 @@
+%table
+  =link_to "戻る", root_path, class:"btn btn-dark", style:"margin:30px;"
+  =link_to "お気に入り", users_path, class:"btn btn-info"
+  %thead
+    %tr
+      %th 日本語
+      %th ベトナム語
+      %th 発音
+      %th 削除
+    %tbody
+    - @search_notes.each do |note|
+      %tr
+        %td= link_to '編集', edit_note_path(note),class:"btn btn-info"
+        / 本の詳細へのリンク
+        %td= note.memo

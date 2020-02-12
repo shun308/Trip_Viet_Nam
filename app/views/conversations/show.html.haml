@@ -1,0 +1,16 @@
+%table
+  =link_to "戻る", root_path, class:"btn btn-dark", style:"margin:30px;"
+  =link_to "お気に入り", users_path, class:"btn btn-info"
+  %thead
+    %tr
+      %th 日本語
+      %th ベトナム語
+      %th 発音
+      %th 削除
+  %tbody
+  - @user.conversations.each_with_index do |conversation, i|
+    %tr
+      %td= conversation.japanese_conversation
+      %td= conversation.vietnamese_conversation
+      %td= conversation.intonation_conversation
+      %td= link_to "削除", favorite_conversation_path(@favorite_conversations[i][:id]), method: :delete, class:"fas fa-cut",style:"color:red;"

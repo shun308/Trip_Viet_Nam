@@ -1,0 +1,8 @@
+%h1 タスク編集
+= form_for(@note) do |f|
+  %div= f.label :title
+  %div= f.text_field :title
+  %div= f.label :memo
+  %div= f.text_field :memo
+  %div= f.submit
+= link_to '戻る', notes_path

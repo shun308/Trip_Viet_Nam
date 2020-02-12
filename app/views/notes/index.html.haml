@@ -1,0 +1,18 @@
+%h1 タスク一覧
+.form-inline.my-2.my-lg-0
+  = search_form_for @search, url: favorite_conversations_path do |f|
+    = f.text_field :memo_cont ,placeholder: '単語から検索....',class: "form-control mr-sm-2"
+    = f.submit ("検索") , class:"btn btn-outline-success my-2 my-sm-0",style:"margin-right:40px;"
+%table
+  %thead
+    %tr
+      %th タスク名
+  %tbody
+  - @user.notes.each do |note|
+    %tr
+      %td= note.memo
+      %td= link_to '編集', edit_note_path(note),class:"btn btn-info"
+  = link_to '追加', new_note_path,class:"btn btn-dark", style:"margin:30px;"
+  - if flash[:notice]
+    .flash{style:"font-size:30px;color:red;margin-left:100px;"}
+      = flash[:notice]

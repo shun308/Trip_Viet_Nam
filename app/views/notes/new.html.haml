@@ -1,0 +1,12 @@
+%h1 新規タスク
+= form_for(@note) do |f|
+  %div= f.label :title
+  %div= f.text_field :title
+  %div= f.label :memo
+  %div= f.text_field :memo
+  %div= f.submit
+  - if flash[:notice]
+    .flash{style:"font-size:30px;color:red;margin-left:100px;"}
+      = flash[:notice]
+
+-# = link_to '戻る', notes_path,class:"menu__link"

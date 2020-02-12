@@ -1,0 +1,21 @@
+%table
+  =link_to "戻る", root_path, class:"btn btn-dark", style:"margin:30px;"
+  =link_to "お気に入り", users_path, class:"btn btn-info"
+  %thead
+    %tr
+      %th 登録
+      %th 日本語
+      %th ベトナム語
+      %th 発音
+    %tbody
+    - @conversations.each do |conversation|
+      %tr
+        / お気に入り登録ボタン ルートに従いパスを記述、POSTメソッドに指定
+        %td= link_to "登録", add_conversation_path(conversation), method: :post, class:"fas fa-star", style:"color:gold;"
+        / 本の詳細へのリンク
+        %td= conversation.japanese_conversation
+        %td= conversation.vietnamese_conversation
+        %td= conversation.intonation_conversation
+    - if flash[:notice]
+      .flash{style:"font-size:30px;color:red;margin-left:100px;"}
+        = flash[:notice]

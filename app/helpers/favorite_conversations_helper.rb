@@ -1,0 +1,2 @@
+module FavoriteConversationsHelper
+end

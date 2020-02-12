@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_05_121009) do
+ActiveRecord::Schema.define(version: 2020_02_12_054413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversations", force: :cascade do |t|
+    t.string "japanese_conversation"
+    t.string "vietnamese_conversation"
+    t.string "intonation_conversation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorite_conversations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "conversation_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_favorite_conversations_on_conversation_id"
+    t.index ["user_id"], name: "index_favorite_conversations_on_user_id"
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -27,9 +44,18 @@ ActiveRecord::Schema.define(version: 2020_01_05_121009) do
   create_table "items", force: :cascade do |t|
     t.string "japanese"
     t.string "vietnamese"
+    t.string "intonation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "intonation"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "memo"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,4 +73,5 @@ ActiveRecord::Schema.define(version: 2020_01_05_121009) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "notes", "users"
 end
