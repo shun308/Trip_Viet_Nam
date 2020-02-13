@@ -1,7 +1,8 @@
 class FavoriteConversationsController < ApplicationController
   def index
-    @search = Note.ransack(params[:q]) #ransackメソッド推奨
-    @search_notes = @search.result
+    @user = User.find(current_user.id)
+    #特定のユーザーが登録したお気に入りを全て取得する
+    @favorite_conversations = FavoriteConversation.where("user_id = ?", @user)
   end
  
   def create
@@ -24,7 +25,7 @@ class FavoriteConversationsController < ApplicationController
     if @favorite_conversations.destroy
       #削除に成功した場合、ログインしているユーザの詳細画面に戻る
       flash[:notice] = "削除しました"
-      redirect_to conversation_path
+      redirect_to favorite_conversations_path
     end
   end
 end

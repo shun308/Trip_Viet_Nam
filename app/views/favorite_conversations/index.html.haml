@@ -7,9 +7,10 @@
       %th ベトナム語
       %th 発音
       %th 削除
-    %tbody
-    - @search_notes.each do |note|
-      %tr
-        %td= link_to '編集', edit_note_path(note),class:"btn btn-info"
-        / 本の詳細へのリンク
-        %td= note.memo
+  %tbody
+  - @user.conversations.each_with_index do |conversation, i|
+    %tr
+      %td= conversation.japanese_conversation
+      %td= conversation.vietnamese_conversation
+      %td= conversation.intonation_conversation
+      %td= link_to "削除", favorite_conversation_path(@favorite_conversations[i][:id]), method: :delete, class:"fas fa-cut",style:"color:red;"

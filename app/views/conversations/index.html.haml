@@ -1,6 +1,10 @@
 %table
   =link_to "戻る", root_path, class:"btn btn-dark", style:"margin:30px;"
   =link_to "お気に入り", users_path, class:"btn btn-info"
+  .form-inline.my-2.my-lg-0
+    = search_form_for @search, url: conversation_path(current_user) do |f|
+      = f.text_field :japanese_conversation_cont ,placeholder: '単語から検索....',class: "form-control mr-sm-2"
+      = f.submit ("検索") , class:"btn btn-outline-success my-2 my-sm-0",style:"margin-right:40px;"
   %thead
     %tr
       %th 登録

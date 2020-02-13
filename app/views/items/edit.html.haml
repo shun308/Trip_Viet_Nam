@@ -8,13 +8,13 @@
       %th 発音
       %th 削除
     %tbody
-    - @search_conversations.each do |conversation|
+    - @search_items.each do |item|
       %tr
-        %td= link_to "登録", add_conversation_path(conversation), method: :post, class:"fas fa-star", style:"color:gold;"
+        %td= link_to "登録", add_item_path(item), method: :post, class:"fas fa-star", style:"color:gold;"
         / 本の詳細へのリンク
-        %td= conversation.japanese_conversation
-        %td= conversation.vietnamese_conversation
-        %td= conversation.intonation_conversation
+        %td= item.japanese
+        %td= item.vietnamese
+        %td= item.intonation
     - if flash[:notice]
       .flash{style:"font-size:30px;color:red;margin-left:100px;"}
         = flash[:notice]

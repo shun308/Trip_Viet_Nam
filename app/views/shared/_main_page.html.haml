@@ -5,10 +5,10 @@
         %h1 TRIP VIETNAM
       .toolbar
         .toolbar__left
-          =link_to "お気に入り単語", users_path, class:"btn btn-info"
-          =link_to "お気に入り会話", conversation_path(current_user), class:"btn btn-info"
+          =link_to "お気に入り単語", favorites_path, class:"btn btn-info"
+          =link_to "お気に入り会話", favorite_conversations_path(current_user), class:"btn btn-info"
       .form-inline.my-2.my-lg-0
-        = search_form_for @search, url: favorites_path do |f|
+        = search_form_for @search, url: edit_item_path(current_user) do |f|
           = f.text_field :japanese_cont ,placeholder: '単語から検索....',class: "form-control mr-sm-2"
           = f.submit ("検索") , class:"btn btn-outline-success my-2 my-sm-0",style:"margin-right:40px;"
         .toolbar__right
@@ -25,7 +25,7 @@
         %li.menu__item
           = link_to "単語集",item_path(current_user),class:"menu__link"
         %li.menu__item
-          = link_to "会話 文章集", conversations_path,class:"menu__link"
+          = link_to "会話 文章集", conversations_path(current_user),class:"menu__link"
         %li.menu__title note
         %li.menu__item
           = link_to "メモ",notes_path,class:"menu__link"

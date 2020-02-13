@@ -7,14 +7,13 @@
       %th ベトナム語
       %th 発音
       %th 削除
-    %tbody
-    - @search_items.each do |item|
-      %tr
-        %td= link_to "登録", add_item_path(item), method: :post, class:"fas fa-star", style:"color:gold;"
-        / 本の詳細へのリンク
-        %td= item.japanese
-        %td= item.vietnamese
-        %td= item.intonation
-    - if flash[:notice]
-      .flash{style:"font-size:30px;color:red;margin-left:100px;"}
-        = flash[:notice]
+  %tbody
+  - @user.items.each_with_index do |item, i|
+    %tr
+      %td= item.japanese
+      %td= item.vietnamese
+      %td= item.intonation
+      %td= link_to "削除", favorite_path(@favorites[i][:id]), method: :delete, class:"fas fa-cut",style:"color:red;"
+  - if flash[:notice]
+    .flash{style:"font-size:30px;color:red;margin-left:100px;"}
+      = flash[:notice]

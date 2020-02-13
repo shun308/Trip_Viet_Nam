@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.find(current_user.id)
-    #特定のユーザーが登録したお気に入りを全て取得する
-    @favorites = Favorite.where("user_id = ?", @user)
+    @search = Note.ransack(params[:q]) #ransackメソッド推奨
+    @search_notes = @search.result
   end
 
   def edit

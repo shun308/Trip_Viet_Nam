@@ -7,4 +7,9 @@ class ItemsController < ApplicationController
     #ページネーション
     @items = Item.page(params[:page]).per(15)
   end
+  
+  def edit
+    @search = Item.ransack(params[:q]) #ransackメソッド推奨
+    @search_items = @search.result
+  end
 end

@@ -1,8 +1,4 @@
 %h1 タスク一覧
-.form-inline.my-2.my-lg-0
-  = search_form_for @search, url: favorite_conversations_path do |f|
-    = f.text_field :memo_cont ,placeholder: '単語から検索....',class: "form-control mr-sm-2"
-    = f.submit ("検索") , class:"btn btn-outline-success my-2 my-sm-0",style:"margin-right:40px;"
 %table
   %thead
     %tr
