@@ -1,0 +1,53 @@
+.fadedfx {
+  background-color: #fe5652;
+  visibility: hidden;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  -webkit-animation-name: fadeIn;
+  animation-duration: 1.5s;
+  -webkit-animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+  visibility: visible !important;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+.card-title {
+  border-bottom: 10px solid #eee;
+}
+.new_post {
+  outline: none;
+  height: 50px;
+  width: 150px;
+  line-height: 48px;
+  font-size: 30px;
+  border: 1px solid transparent;
+  color: darkgrey;
+  margin: 20px 20px 0px 20px;
+  background-color: white;
+  margin-bottom:10px;
+}
+.introduce {
+  width:90%;
+  height:250px;
+}

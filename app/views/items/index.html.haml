@@ -1,2 +1,124 @@
-.wrapper
-  = render "shared/main_page" 
+.admin
+  %header.admin__header
+    .logo
+      =link_to "TRIP VIETNAM", root_path
+    .toolbar
+      .toolbar__left
+        =link_to "お気に入り単語", favorites_path, class:"btn btn-info"
+        =link_to "お気に入り会話", favorite_conversations_path, class:"btn btn-info",style:"margin-left:15px;"
+      .alert.alert-info{role: "alert",style:"margin-top:20px;"}
+        = @user.name
+        さん 
+    .form-inline.my-2.my-lg-0
+      = search_form_for @search, url: edit_item_path(current_user) do |f|
+        = f.text_field :japanese_cont ,placeholder: '単語を検索....',class: "form-control mr-sm-2"
+        = f.submit ("検索") , class:"btn btn-outline-success my-2 my-sm-0",style:"margin-right:40px;"
+      .toolbar__right
+        =link_to"https://www.facebook.com/sharer/sharer.php?u=###url###", {onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
+          .btn.fab.fa-facebook-square{style:"padding:0 30px 0 0;font-size:35px;color:#315096;"}
+        =link_to"http://line.me/R/msg/text/?###url###",{onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
+          .btn.fab.fa-line{style:"padding:0 30px 0 0;font-size:35px;color:#00c300;"}
+        =link_to"https://twitter.com/intent/tweet?text&related=TwitterJP ",{onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
+          .btn.fab.fa-twitter{style:"padding:0 30px 0 0;font-size:35px;color:#00acee;"}
+        = link_to "ログアウト",destroy_user_session_path,method: :delete, class: "btn btn-dark",style:"margin-right:20px;"
+  %nav.admin__nav
+    %ul.menu
+      %li.menu__title Word
+      %li.menu__item
+        = link_to "単語集",item_path(current_user),class:"menu__link"
+      %li.menu__item
+        = link_to "会話 文章集", conversations_path(current_user),class:"menu__link"
+      %li.menu__title note
+      %li.menu__item
+        = link_to "ノート",notes_path,class:"menu__link"
+      -# %li.menu__item
+      -#   %a.menu__link{:href => "#"} 課題
+      -# / <li class="menu__divider"></li>
+      -# %li.menu__title problem
+      -# %li.menu__item
+      -#   %a.menu__link{:href => "#"} 練習問題
+      -# %li.menu__item
+      -#   %a.menu__link{:href => "#"} ランダム問題（単語）
+      -# %li.menu__item
+      -#   %a.menu__link{:href => "#"} ランダム問題（会話、文章）
+      / <li class="menu__divider"></li>
+      %li.menu__title Account
+      %li.menu__item
+        = link_to "ベトナムの歴史", "https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%88%E3%83%8A%E3%83%A0%E3%81%AE%E6%AD%B4%E5%8F%B2",class:"menu__link"
+      %li.menu__item
+        = link_to "アカウント編集", edit_registration_path(current_user), class: "menu__link"
+      / <li class="menu__divider"></li>
+
+  %main.admin__main
+    .dashboard
+      .dashboard__item
+        .card
+          .card__header
+            Players
+          .card__content
+            .card__item
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ab libero consectetur et numquam a id. Dignissimos nesciunt aperiam ut minima itaque repudiandae architecto praesentium autem. Porro ad labore fugiat?
+      .dashboard__item.dashboard__item--col
+        .card
+          .card__header
+            Memory
+          .card__content
+            .card__item
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium labore id culpa sit nisi nostrum, excepturi cumque eos laborum ducimus alias, provident doloribus et facere explicabo ab repudiandae perferendis earum.
+      .dashboard__item.dashboard__item--col
+        .card
+          .card__header
+            Disk usage
+          .card__content
+            .card__item
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium labore id culpa sit nisi nostrum, excepturi cumque eos laborum ducimus alias, provident doloribus et facere explicabo ab repudiandae perferendis earum.
+      .dashboard__item.dashboard__item--full
+        .card
+          .card__header
+            Card full width
+          .card__content
+            .card__item
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium labore id culpa sit nisi nostrum, excepturi cumque eos laborum ducimus alias, provident doloribus et facere explicabo ab repudiandae perferendis earum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima dolore laudantium est, vel illo labore nostrum cupiditate perspiciatis, doloremque sit enim sequi, quasi cumque dolorum voluptate! Aliquam corrupti laboriosam nostrum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate porro dolores optio dicta tempora quas, culpa itaque, unde recusandae tempore. Voluptas quia perferendis est veritatis nobis, iusto voluptate dolor?
+      .dashboard__item.dashboard__item--col
+        .card
+          .card__header
+            Card
+          .card__content
+            .card__item
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium labore id culpa sit nisi nostrum, excepturi cumque eos laborum ducimus alias, provident doloribus et facere explicabo ab repudiandae perferendis earum.
+      .dashboard__item.dashboard__item--col
+        .card
+          .card__header
+            Card
+          .card__content
+            .card__item
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium labore id culpa sit nisi nostrum, excepturi cumque eos laborum ducimus alias, provident doloribus et facere explicabo ab repudiandae perferendis earum.
+      .dashboard__item.dashboard__item--col
+        .card
+          .card__header
+            Card
+          .card__content
+            .card__item
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium labore id culpa sit nisi nostrum, excepturi cumque eos laborum ducimus alias, provident doloribus et facere explicabo ab repudiandae perferendis earum.
+      .dashboard__item.dashboard__item--col
+        .card
+          .card__header
+            Card
+          .card__content
+            .card__item
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium labore id culpa sit nisi nostrum, excepturi cumque eos laborum ducimus alias, provident doloribus et facere explicabo ab repudiandae perferendis earum.
+      .dashboard__item.dashboard__item--full
+        .card
+          .card__header
+            Card full width
+          .card__content
+            .card__item
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium labore id culpa sit nisi nostrum, excepturi cumque eos laborum ducimus alias, provident doloribus et facere explicabo ab repudiandae perferendis earum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima dolore laudantium est, vel illo labore nostrum cupiditate perspiciatis, doloremque sit enim sequi, quasi cumque dolorum voluptate! Aliquam corrupti laboriosam nostrum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate porro dolores optio dicta tempora quas, culpa itaque, unde recusandae tempore. Voluptas quia perferendis est veritatis nobis, iusto voluptate dolor?
+      .dashboard__item.dashboard__item--full
+        .card
+          .card__header
+            Card full width
+          .card__content
+            .card__item
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium labore id culpa sit nisi nostrum, excepturi cumque eos laborum ducimus alias, provident doloribus et facere explicabo ab repudiandae perferendis earum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima dolore laudantium est, vel illo labore nostrum cupiditate perspiciatis, doloremque sit enim sequi, quasi cumque dolorum voluptate! Aliquam corrupti laboriosam nostrum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda cupiditate porro dolores optio dicta tempora quas, culpa itaque, unde recusandae tempore. Voluptas quia perferendis est veritatis nobis, iusto voluptate dolor?
+  %footer.admin__footer 

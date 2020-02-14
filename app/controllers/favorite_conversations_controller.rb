@@ -1,8 +1,10 @@
 class FavoriteConversationsController < ApplicationController
+
   def index
     @user = User.find(current_user.id)
     #特定のユーザーが登録したお気に入りを全て取得する
     @favorite_conversations = FavoriteConversation.where("user_id = ?", @user)
+    @search = Item.ransack(params[:q])
   end
  
   def create
@@ -10,7 +12,6 @@ class FavoriteConversationsController < ApplicationController
     @conversation_id = Conversation.find(params[:id]).id 
     @favorite_conversations = FavoriteConversation.new(conversation_id: @conversation_id, user_id: @user_id)
     if @favorite_conversations.save
-      flash[:notice] = "登録しました！"
       redirect_back(fallback_location: conversation_path)
     else
       #重複して保存しようとした場合

@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 
   def show
-    @search = Note.ransack(params[:q]) #ransackメソッド推奨
-    @search_notes = @search.result
   end
 
   def edit
