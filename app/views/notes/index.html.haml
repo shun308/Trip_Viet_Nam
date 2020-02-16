@@ -1,6 +1,8 @@
 = render "shared/main_page"
 %body.top
-  .new_post ノート一覧
+  = link_to '戻る', root_path,class:"btn btn-dark", style:"margin:20px 30px 30px 30px;"
+  = link_to "ノート一覧", notes_path, class:"btn-secondary",style:"font-size:30px;"
+  = link_to 'ノートを追加', new_note_path,class:"btn btn-success",style:"margin-left:150px;"
   - if flash[:notice]
     .flash{style:"font-size:30px;color:blue;margin-left:100px;"}
       = flash[:notice]
@@ -8,15 +10,18 @@
     %thead.thead-dark
       %tr
         %th タイトル
-        %th 内容
+        %th タグ(絞り込み)
+        %th 作成日時
+        %th 最終更新時間
         %th 詳細
         %th 削除
       %tbody
       - @user.notes.each do |note|
         %tr
+        - if user_signed_in? && current_user.id == note.user_id
           %td= note.title
-          %td= note.memo
+          %td= render 'notes/tag_list', tag_list: note.tag_list
+          %td= note.created_at.strftime("%Y-%m-%d %H:%M")
+          %td= note.updated_at.strftime("%Y-%m-%d %H:%M")
           %td= link_to '閲覧', note_path(note),class:"btn btn-primary"
           %td= link_to '削除', note_path(note), method: :delete,class:"btn btn-danger"
-      = link_to '戻る', root_path,class:"btn btn-dark", style:"margin:30px;"
-      = link_to 'ノートを追加', new_note_path,class:"btn btn-success"

@@ -6,7 +6,7 @@
       =link_to "お気に入り単語", favorites_path, class:"btn btn-info",style:"margin:15px;"
       =link_to "お気に入り会話", favorite_conversations_path, class:"btn btn-info"
     .alert.alert-info{role: "alert",style:"margin-top:20px;"}
-      = @user.name
+      = link_to @user.name, users_path,style:"color:#00acee;"
       さん
   .form-inline.my-2.my-lg-0{style:"margin-left:30px;"}
     = search_form_for @search, url: edit_item_path(current_user) do |f|

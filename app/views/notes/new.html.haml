@@ -16,6 +16,8 @@
           = form_for(@note) do |f|
             %div{style:"font-size:30px;text-align:center;"}= f.label :title
             %div.card-title{style:"font-size:30px;text-align:center;"}= f.text_field :title
+            %div{style:"font-size:30px;text-align:center;"}= f.label :タグ
+            %div.card-title{style:"font-size:30px;text-align:center;"}= f.text_field :tag_list, value: @note.tag_list.join(',')
             %div{style:"font-size:30px;text-align:center;"}= f.label :memo
             %div{style:"margin:0px 0px 100px 10px;font-size:20px;text-align:center;"}= f.text_area :memo, class:"introduce"
             %div{style:"text-align:center;font-size:30px;margin-bottom:20px;"}= f.submit "保存する",class:"btn-outline-success"
