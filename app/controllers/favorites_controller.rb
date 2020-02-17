@@ -29,7 +29,7 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.find(params[:id])
     if @favorite.destroy
       #削除に成功した場合、ログインしているユーザの詳細画面に戻る
-      # flash[:notice] = "削除しました"
+      flash[:notice] = "削除しました"
       redirect_back(fallback_location: root_path)
     end
   end
