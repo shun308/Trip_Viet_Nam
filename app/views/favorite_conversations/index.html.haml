@@ -11,9 +11,10 @@
         %th.top2 発音
         %th.top2 削除
       %tbody.top5
-      - @user.conversations.each_with_index do |conversation, i|
+      - @favorite_conversations.each do |favorite_conversation|
+        - conversation = Conversation.find(favorite_conversation.conversation_id)
         %tr.top6
           %td.top4= conversation.japanese_conversation
           %td.top4= conversation.vietnamese_conversation
           %td.top4= conversation.intonation_conversation
-          %td.top4= link_to "削除", favorite_conversation_path(@favorite_conversations[i][:id]), method: :delete, class:"fas fa-cut",style:"color:red;"
+          %td.top4= link_to "削除", favorite_conversation_path(favorite_conversation), method: :delete, class:"fas fa-cut",style:"color:red;"

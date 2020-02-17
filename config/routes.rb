@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   root 'items#index'
   resource :users
   #個人ページからお気に入りを削除する
-  resources :favorites
-  resources :favorite_conversations
-  resources :notes
+  resources :favorites, only: [:index, :create,:destroy]
+  resources :favorite_conversations, only: [:index, :create,:destroy]
+  resources :notes, only: [:index, :new, :edit, :show, :create, :update, :destroy]
   resources :items do
     member do #Item一覧画面からお気に入り登録をする
       post "add", to: "favorites#create"

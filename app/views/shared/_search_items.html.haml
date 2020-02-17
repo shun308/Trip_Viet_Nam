@@ -10,9 +10,15 @@
       %th.bottom 削除
     %tbody
     - @search_items.each do |item|
+      - favorite = Favorite.find(item.favorite_ids)
       %tr
+      - if Favorite.find_by(user_id: current_user.id, item_id: item.id)
+        %td.bottom1= link_to "", favorite_path(favorite), method: :delete, class:"fas fa-star", style:"#BAD3FF;"
+        %td.bottom1= item.japanese
+        %td.bottom1= item.vietnamese
+        %td.bottom1= item.intonation
+      - else
         %td.bottom1= link_to "登録", add_item_path(item), method: :post, class:"fas fa-star", style:"color:gold;"
-        / 本の詳細へのリンク
         %td.bottom1= item.japanese
         %td.bottom1= item.vietnamese
         %td.bottom1= item.intonation

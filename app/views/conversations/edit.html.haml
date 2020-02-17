@@ -2,6 +2,7 @@
 %body.top
   .new_post タグ一覧
   = link_to '戻る', notes_path,class:"btn btn-dark", style:"margin:30px;"
+  = link_to 'ノートを追加', new_note_path,class:"btn btn-info",style:"margin-left:150px;"
   = render "shared/flash"
   %table.table
     %thead.thead-dark

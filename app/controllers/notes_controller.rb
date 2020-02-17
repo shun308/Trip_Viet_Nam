@@ -1,8 +1,6 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:edit, :show, :update,:destroy]
-  before_action :set_user, only: [:index, :new, :edit, :show,:create,:update]
-  before_action :set_search, only: [:index, :new, :edit, :show,:create,:update]
-  before_action :set_search2, only: [:index, :new, :edit, :show,:create,:update]
+  before_action :set_all3, only: [:index, :new, :edit, :show, :create, :update]
   
   def index
     @notes = Note.find_by(params[:id])
@@ -54,15 +52,9 @@ class NotesController < ApplicationController
       @note = Note.find(params[:id])
     end
 
-    def set_user
+    def set_all3
       @user = User.find(current_user.id)
-    end
-
-    def set_search
       @search = Item.ransack(params[:q])
-    end
-
-    def set_search2
       @search2 = Conversation.ransack(params[:q])
     end
-end
+  end
