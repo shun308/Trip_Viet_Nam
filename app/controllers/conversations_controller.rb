@@ -8,7 +8,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @search_conversations = @search2.result
+    @search_conversations = @search2.result(distinct: true)
   end
 
   def edit

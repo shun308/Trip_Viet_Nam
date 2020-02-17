@@ -1,8 +1,8 @@
 - if user_signed_in? && current_user.id == @note.user_id
   = render "shared/main_page"
   %body.top
+    .new_post ノート詳細
     = link_to '戻る', notes_path,class:"btn btn-dark", style:"margin:20px 30px 30px 30px;"
-    = link_to "ノート一覧", notes_path, class:"btn-secondary",style:"font-size:30px;"
     %body.grey.lighten-2
       .container
         .col.s12.m7
@@ -15,11 +15,11 @@
               %div{style:"font-size:30px;text-align:center;"}= f.label :タイトル
               %div.card-title{style:"font-size:30px;text-align:center;"}= @note.title
               %div{style:"font-size:30px;text-align:center;"}= f.label :タグ
-              %div.card-title{style:"font-size:30px;text-align:center;"}= @note.tag_list
+              %div.card-title{style:"font-size:30px;text-align:center;color:lightblue;"}= @note.tag_list
               %div{style:"font-size:30px;text-align:center;"}= f.label :ノート
               %div{style:"margin:0px 0px 100px 20px;font-size:25px;"}= @note.memo
-              = link_to '編集', edit_note_path(@note),class:"btn btn-info"
-              = link_to "削除", note_path(@note), method: :delete,class:"btn btn-danger"
+              = link_to '編集', edit_note_path(@note),class:"btn btn-primary",style:"margin:0 0 20px 50px;"
+              = link_to "削除", note_path(@note), method: :delete,class:"btn btn-danger",style:"margin:0 0 20px 30px;"
 - else
   = render "shared/main_page"
   %body.top ※データが存在しません

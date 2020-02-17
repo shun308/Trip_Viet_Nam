@@ -1,14 +1,9 @@
 = render "shared/main_page"
 %body.top
   %table.top1
+    .new_post 会話一覧
     =link_to "戻る", root_path, class:"btn btn-dark", style:"margin:30px;"
-    - if flash[:notice]
-      .flash{style:"font-size:30px;color:blue;margin-left:100px;"}
-        = flash[:notice]
-    .form-inline.my-2.my-lg-0
-      = search_form_for @search2, url: conversation_path(current_user) do |f|
-        = f.text_field :japanese_conversation_cont ,placeholder: '会話 文章を検索....',class: "form-control mr-sm-2"
-        = f.submit ("検索") , class:"btn btn-outline-success my-2 my-sm-0",style:"margin-right:40px;"
+    = render "shared/flash"
     %thead.top3
       %tr.top6
         %th.top2 登録
@@ -19,7 +14,7 @@
       - @conversations.each do |conversation|
         %tr.top6
           / お気に入り登録ボタン ルートに従いパスを記述、POSTメソッドに指定
-          %td.top4= link_to "登録", add_conversation_path(conversation), method: :post, class:"fas fa-star", style:"color:gold;"
+          %td.top4= link_to "", add_conversation_path(conversation), method: :post, class:"fas fa-star", style:"color:#00acee;"
           / 本の詳細へのリンク
           %td.top4= conversation.japanese_conversation
           %td.top4= conversation.vietnamese_conversation

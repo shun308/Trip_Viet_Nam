@@ -1,21 +1,3 @@
 = render "shared/main_page"
 %body.top
-  %table
-    =link_to "戻る", root_path, class:"btn btn-dark", style:"margin:30px;"
-    - if flash[:notice]
-      .flash{style:"font-size:30px;color:blue;margin-left:100px;"}
-        = flash[:notice]
-    %thead
-      %tr
-        %th.bottom 日本語
-        %th.bottom ベトナム語
-        %th.bottom 発音
-        %th.bottom 削除
-      %tbody
-      - @search_items.each do |item|
-        %tr
-          %td.bottom1= link_to "登録", add_item_path(item), method: :post, class:"fas fa-star", style:"color:gold;"
-          / 本の詳細へのリンク
-          %td.bottom1= item.japanese
-          %td.bottom1= item.vietnamese
-          %td.bottom1= item.intonation
+  = render "shared/search_items"

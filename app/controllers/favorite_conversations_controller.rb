@@ -5,6 +5,7 @@ class FavoriteConversationsController < ApplicationController
     #特定のユーザーが登録したお気に入りを全て取得する
     @favorite_conversations = FavoriteConversation.where("user_id = ?", @user)
     @search = Item.ransack(params[:q])
+    @search2 = Conversation.ransack(params[:q])
   end
  
   def create

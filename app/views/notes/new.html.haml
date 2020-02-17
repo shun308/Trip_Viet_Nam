@@ -2,9 +2,7 @@
 %body.top
   .new_post 新規ノート
   = link_to '戻る', notes_path,class:"btn btn-dark", style:"margin:30px;"
-  - if flash[:notice]
-    .flash{style:"font-size:30px;color:blue;margin-left:100px;"}
-      = flash[:notice]
+  = render "shared/flash"
   %body.grey.lighten-2
     .container
       .col.s12.m7
@@ -14,10 +12,10 @@
           .card-stacked
             .card-content
           = form_for(@note) do |f|
-            %div{style:"font-size:30px;text-align:center;"}= f.label :title
+            %div{style:"font-size:30px;text-align:center;"}= f.label :タイトル
             %div.card-title{style:"font-size:30px;text-align:center;"}= f.text_field :title
-            %div{style:"font-size:30px;text-align:center;"}= f.label :タグ
+            %div{style:"font-size:30px;padding-left:center;text-align:center;"}= f.label :タグ
             %div.card-title{style:"font-size:30px;text-align:center;"}= f.text_field :tag_list, value: @note.tag_list.join(',')
-            %div{style:"font-size:30px;text-align:center;"}= f.label :memo
+            %div{style:"font-size:30px;text-align:center;"}= f.label :ノート
             %div{style:"margin:0px 0px 100px 10px;font-size:20px;text-align:center;"}= f.text_area :memo, class:"introduce"
-            %div{style:"text-align:center;font-size:30px;margin-bottom:20px;"}= f.submit "保存する",class:"btn-outline-success"
+            %div{style:"text-align:center;font-size:30px;margin-bottom:20px;"}= f.submit "保存する",class:"btn btn alert-info",style:"font-size:30px;margin-bottom:30px;"
