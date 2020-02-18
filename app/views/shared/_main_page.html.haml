@@ -10,7 +10,7 @@
           =link_to "お気に入り単語", favorites_path, class:"dropdown-item",style:"color:#00acee;"
           =link_to "お気に入り会話", favorite_conversations_path, class:"dropdown-item",style:"color:#00acee;"
     .toolbar__left
-      .dropright{style:"margin-right:300px;"}
+      .dropright{style:"margin-right:250px;"}
         %button#dropdownMenu1.btn.btn-outline-info.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
           検索
         .dropdown-menu
@@ -25,9 +25,9 @@
       さん
     .toolbar__right
       =link_to"https://www.facebook.com/sharer/sharer.php?u=###url###", {onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
-        .btn.fab.fa-facebook-square{style:"padding:0 30px 0 0;font-size:35px;color:#315096;"}
+        .btn.fab.fa-facebook-square{style:"padding:0 60px 0 15px;font-size:35px;color:#315096;"}
       =link_to"http://line.me/R/msg/text/?###url###",{onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
-        .btn.fab.fa-line{style:"padding:0 30px 0 0;font-size:35px;color:#00c300;"}
+        .btn.fab.fa-line{style:"padding:0 60px 0 0;font-size:35px;color:#00c300;"}
       =link_to"https://twitter.com/intent/tweet?text&related=TwitterJP ",{onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
-        .btn.fab.fa-twitter{style:"padding:0 30px 0 0;font-size:35px;color:#00acee;"}
-      = link_to "ログアウト",destroy_user_session_path,method: :delete, class: "btn btn-dark",style:"margin-right:20px;"
+        .btn.fab.fa-twitter{style:"padding:0 60px 0 0;font-size:35px;color:#00acee;"}
+      = link_to "ログアウト",destroy_user_session_path,method: :delete, class: "btn btn-dark",style:"margin-right:60px;"
