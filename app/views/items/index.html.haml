@@ -48,6 +48,7 @@
         = link_to "ベトナムの歴史", "https://ja.wikipedia.org/wiki/%E3%83%99%E3%83%88%E3%83%8A%E3%83%A0%E3%81%AE%E6%AD%B4%E5%8F%B2",class:"menu__link"
       %li.menu__item
         = link_to "アカウント編集", edit_registration_path(current_user), class: "menu__link"
+      /今後実装予定
       -# %li.menu__item
       -#   %a.menu__link{:href => "#"} 課題
       -# / <li class="menu__divider"></li>
@@ -69,14 +70,47 @@
         .dashboard__item
           .card
             .card__header
-              ベトナム語について
+              ベトナム語の声調
             .card__content
               .card__item
-                ベトナム語の発音は、中国語にあるような声調が 6 つあることで有名です。また、日本語にない音の区別がたくさんあり、日本語よりも音の区別をずっとはっきりと発音します。カタカナを読み上げるような発音では、全く通じません。ですから、一般にベトナム語の音声はとても難しいといわれているのも事実です。
+                ・Thanh ngang (平らな声調)
+                %br
+                %br
+                ・Thanh huyền (下がる声調)
+                %br
+                %br
+                ・Thanh sắc (鋭い声調)
+                %br
+                %br
+                ・Thanh hỏi (尋ねる)
+                %br
+                %br
+                ・Thanh ngã (倒れる声調)
+                %br
+                %br
+                ・Thanh nặng (重い声調)
+        .dashboard__item
+          .card
+            .card__header
+              ベトナム語のアルファベット
+            .card__content
+              .card__item
+                使用するアルファベットは、次の29文字
+                %br
+                %br
+                %br
+                a　ă　â　b　c　d　đ　e　ê　g　h　i　k　l　m　n　o　ô　ơ　p　q　r　s　t　u　ư　v　x　y
+                %br
+                %br
+                %br
+                A　Ă　Â　B　C　D　Đ　E　Ê　G　H　I　K　L　M　N　O　Ô　Ơ　P　Q　R　S　T　U　Ư　V　X　Y  
         .dashboard__item.dashboard__item--full{style:"height:500px;"}
           .card
             .card__header
-              Card full width
+              ベトナム語概要
             .card__content
-              .card__item   
-    %footer.admin__footer     
+              .card__item
+                インド文化圏にあるタイ、カンボジア、ラオス、ミャンマーはそれぞれインド系の固有の文字を持っていますが、ベトナムだけはアルファベットを使っています。ベトナムには固有の文字がなく、表記は古くから漢字・漢文が使われてきました。ただし、発音はベトナム語読みでした。それが漢越語と言われているものです。
+                %br
+                ベトナム語の発音は、中国語にあるような声調が 6 つあることで有名です。また、日本語にない音の区別がたくさんあり、日本語よりも音の区別をずっとはっきりと発音します。カタカナを読み上げるような発音では全く通じず、一般にベトナム語の発音はとても難しいとされています。近年、日本とベトナムの距離が縮まってくるに従って、ベトナム語の需要は高まりつつあります。日本でベトナム語を話せる人材はまだまだ多いとは言えず、今後期待される言語となるでしょう。
+    %footer.admin__footer
