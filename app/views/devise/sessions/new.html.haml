@@ -11,12 +11,12 @@
       = form_for(resource, as: resource_name, url: session_path(resource_name),html: {class:"form-item"}) do |f|
         = devise_error_messages!
         .form-item
-          #email= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-style",placeholder:"Your Email"
+          #email= f.email_field :email, autofocus: true, autocomplete: "email",class: "form-style",placeholder:"メールアドレス"
         .form-item
-          #password= f.password_field :password, class: "form-style",placeholder:"Your Password"
+          #password= f.password_field :password, class: "form-style",placeholder:"パスワード"
         .form-item
           .pull-left
-          = f.submit "Log In", class:"login pull-right",style:"margin-bottom:20px;"
+          = f.submit "ログイン", class:"login pull-right",style:"margin-bottom:20px;"
           -# = link_to "Forgot Your Password?", new_user_password_path, class:"btn btn-link",style:"color:grey;"
-          = link_to "Create Account", new_user_registration_path, class:"btn btn-outline-primary btn-block border mt-1",style: "color:grey;"
+          = link_to "アカウント作成画面へ", new_user_registration_path, class:"btn btn-outline-primary btn-block border mt-1",style: "color:grey;"
           .clear-fix

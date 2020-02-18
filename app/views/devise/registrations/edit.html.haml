@@ -12,7 +12,7 @@
         = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class:"form-item", method: :put}) do |f|
           = devise_error_messages!
           .form-item{style:"color:grey;"}
-            = f.label :email
+            = f.label :メールアドレス
             = f.email_field :email, class: 'form-style'
           - if devise_mapping.confirmable? && resource.pending_reconfirmation?
             = t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email)
