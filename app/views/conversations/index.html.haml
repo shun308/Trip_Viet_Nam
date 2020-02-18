@@ -15,12 +15,12 @@
         - favorite_conversation = FavoriteConversation.find(conversation.favorite_conversation_ids)
         %tr.top6
         - if FavoriteConversation.find_by(user_id: current_user.id, conversation_id: conversation.id)
-          %td.top4= link_to "", favorite_conversation_path(favorite_conversation), method: :delete, class:"fas fa-star",style:"color:#BAD3FF;"
+          %td.top4= link_to "", favorite_conversation_path(favorite_conversation), method: :delete, class:"fas fa-star",style:"color:##00acee;"
           %td.top4= conversation.japanese_conversation
           %td.top4= conversation.vietnamese_conversation
           %td.top4= conversation.intonation_conversation
         - else
-          %td.top4= link_to "", add_conversation_path(conversation), method: :post, class:"fas fa-star", style:"color:#00acee;"
+          %td.top4= link_to "", add_conversation_path(conversation), method: :post, class:"fas fa-star", style:"color:#BAD3FF;"
           %td.top4= conversation.japanese_conversation
           %td.top4= conversation.vietnamese_conversation
           %td.top4= conversation.intonation_conversation
