@@ -27,7 +27,14 @@
 ※問題集、発音のデータを今後実装予定です。  
 
 # :globe_with_meridians: App URL
+
 ### https://tripvietnam.herokuapp.com/  
+### テスト用アカウント  
+* メールアドレス  
+test@gmail.com  
+
+* パスワード  
+111111  
 
 # 制作環境
 
