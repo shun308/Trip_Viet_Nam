@@ -5,7 +5,10 @@
     =link_to "戻る", root_path, class:"btn btn-dark", style:"margin:30px;"
     -# = render "shared/flash"
     %thead.top3
+    - if @search_conversations.length > 0
       %tr.top6
+        = @search_conversations.length
+        個の会話 文章が見つかりました
         %th.top2 登録
         %th.top2 日本語
         %th.top2 ベトナム語
@@ -24,3 +27,6 @@
           %td.top4= conversation.japanese_conversation
           %td.top4= conversation.vietnamese_conversation
           %td.top4= conversation.intonation_conversation
+    - else
+      .fas.fa-not-equal{style:"color:#00acee;"} 
+      　該当する会話 文章は見つかりませんでした

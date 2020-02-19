@@ -4,6 +4,7 @@
   = link_to '戻る', root_path,class:"btn btn-dark", style:"margin:20px 30px 30px 30px;"
   = link_to 'ノートを追加', new_note_path,class:"btn btn-info",style:"margin-left:150px;"
   = render "shared/flash"
+- if @user.notes.length > 0
   %table.table
     %thead.thead-dark
       %tr
@@ -23,3 +24,6 @@
           %td= note.updated_at.strftime("%Y-%m-%d %H:%M")
           %td= link_to '閲覧', note_path(note),class:"btn btn-primary"
           %td= link_to '削除', note_path(note), method: :delete,class:"btn btn-danger"
+- else
+  .fas.fa-book-open{style:"margin-left:40px;color:#00acee;"}
+  　ノートをまだ作成していません

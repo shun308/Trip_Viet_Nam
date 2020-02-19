@@ -3,8 +3,9 @@
   %table.bottom
     .new_post お気に入り
     =link_to "戻る", root_path, class:"btn btn-dark", style:"margin:30px;"
-    = render "shared/flash"
+    -# = render "shared/flash"
     %thead
+    - if @favorites.length > 0
       %tr
         %th.bottom 日本語
         %th.bottom ベトナム語
@@ -18,3 +19,6 @@
           %td.bottom1= item.vietnamese
           %td.bottom1= item.intonation
           %td.bottom1= link_to "", favorite_path(favorite), method: :delete, class:"fas fa-bomb",style:"color:black;"
+    - else
+      .fas.fa-star{style:"color:gold;"} 
+      「お気に入り」した単語はまだありません

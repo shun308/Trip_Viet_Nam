@@ -3,7 +3,10 @@
   =link_to "戻る", root_path, class:"btn btn-dark", style:"margin:30px;"
   -# = render "shared/flash"
   %thead
+  - if @search_items.length > 0
     %tr
+      = @search_items.length
+      個の単語が見つかりました
       %th.bottom 日本語
       %th.bottom ベトナム語
       %th.bottom 発音
@@ -22,3 +25,6 @@
         %td.bottom1= item.japanese
         %td.bottom1= item.vietnamese
         %td.bottom1= item.intonation
+  - else
+    .fas.fa-not-equal{style:"color:#00acee;"}
+    　該当する単語は見つかりませんでした

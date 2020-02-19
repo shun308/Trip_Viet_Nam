@@ -3,8 +3,9 @@
   %table.top1
     .new_post お気に入り
     =link_to "戻る", root_path, class:"btn btn-dark", style:"margin:30px;"
-    = render "shared/flash"
+    -# = render "shared/flash"
     %thead.top3
+    - if @favorite_conversations.length > 0
       %tr.top6
         %th.top2 日本語
         %th.top2 ベトナム語
@@ -18,3 +19,6 @@
           %td.top4= conversation.vietnamese_conversation
           %td.top4= conversation.intonation_conversation
           %td.top4= link_to "", favorite_conversation_path(favorite_conversation), method: :delete, class:"fas fa-bomb",style:"color:black;"
+    - else
+      .fas.fa-star{style:"color:#00acee;"} 
+      「お気に入り」した会話 文章はまだありません
