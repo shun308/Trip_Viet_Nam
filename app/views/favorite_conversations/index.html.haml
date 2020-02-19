@@ -7,6 +7,9 @@
     %thead.top3
     - if @favorite_conversations.length > 0
       %tr.top6
+        .fas.fa-star{style:"color:#00acee;"}
+        = @favorite_conversations.length
+        個のお気に入りがあります
         %th.top2 日本語
         %th.top2 ベトナム語
         %th.top2 発音

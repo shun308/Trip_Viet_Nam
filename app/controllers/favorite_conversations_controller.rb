@@ -16,7 +16,7 @@ class FavoriteConversationsController < ApplicationController
       redirect_back(fallback_location: root_path)
     else
       #重複して保存しようとした場合
-      flash[:notice] = "※登録済みです"
+      # flash[:notice] = "※登録済みです"
       redirect_back(fallback_location: root_path)
     end
   end

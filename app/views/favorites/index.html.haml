@@ -7,6 +7,9 @@
     %thead
     - if @favorites.length > 0
       %tr
+        .fas.fa-star{style:"color:gold;"}
+        = @favorites.length
+        個のお気に入りがあります
         %th.bottom 日本語
         %th.bottom ベトナム語
         %th.bottom 発音

@@ -38,7 +38,7 @@ class NotesController < ApplicationController
   def destroy
     if @note.destroy
       #削除に成功した場合、ログインしているユーザの詳細画面に戻る
-      flash[:notice] = "削除しました"
+      # flash[:notice] = "削除しました"
       redirect_to notes_path
     end
   end
