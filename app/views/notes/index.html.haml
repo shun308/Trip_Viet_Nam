@@ -1,7 +1,7 @@
 = render "shared/main_page"
 %body.top
   .new_post ノート一覧
-  = link_to '戻る', root_path,class:"btn btn-dark", style:"margin:20px 30px 30px 30px;"
+  = link_to '戻る', root_path,class:"btn btn-secondary", style:"margin:20px 30px 30px 30px;"
   = link_to 'ノートを追加', new_note_path,class:"btn btn-info",style:"margin-left:150px;"
   -# = render "shared/flash"
 - if @user.notes.length > 0
