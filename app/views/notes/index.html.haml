@@ -8,7 +8,7 @@
   %table.table
     %thead.thead-dark
       %tr
-        .fas.fa-book-open{style:"margin-left:40px;color:#00acee;"}
+        .fas.fa-book-open
         = @user.notes.length
         冊のノートがあります
         %th タイトル
@@ -28,5 +28,5 @@
           %td= link_to '閲覧', note_path(note),class:"btn btn-primary"
           %td= link_to '削除', note_path(note), method: :delete,class:"btn btn-danger"
 - else
-  .fas.fa-book-open{style:"margin-left:40px;color:#00acee;"}
+  .fas.fa-book-open
   　ノートを作成していません

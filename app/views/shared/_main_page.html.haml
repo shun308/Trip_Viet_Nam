@@ -1,33 +1,35 @@
 .admin__header
-  .logo
-    =link_to "TRIP VIETNAM", root_path
-  .toolbar
-    .toolbar__left{style:"margin-left:30px;"}
-      .dropdown
-        %button#dropdownMenu1.btn.btn-warning.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-          お気に入り
-        .dropdown-menu
-          =link_to "お気に入り単語", favorites_path, class:"dropdown-item",style:"color:#00acee;"
-          =link_to "お気に入り会話", favorite_conversations_path, class:"dropdown-item",style:"color:#00acee;"
-    .toolbar__left
-      .dropright{style:"margin-right:300px;"}
-        %button#dropdownMenu1.btn.btn-outline-info.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-          検索
-        .dropdown-menu
-          = search_form_for @search, url: edit_item_path(current_user) do |f|
-            = f.text_field :japanese_cont ,placeholder: '単語を検索....',class: "form-control"
-            = f.submit ("検索") , class:"btn btn-outline-info"
-          = search_form_for @search2, url: conversation_path(current_user) do |f|
-            = f.text_field :japanese_conversation_cont ,placeholder: '会話 文章を検索....',class: "form-control"
-            = f.submit ("検索") , class:"btn btn-outline-info"
-    .alert.alert-info{role: "alert",style:"margin-top:20px;"}
-      = link_to @user.name, users_path,style:"color:#00acee;"
-      さん
-    .toolbar__right
-      =link_to"https://www.facebook.com/sharer/sharer.php?u=###url###", {onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
-        .btn.fab.fa-facebook-square{style:"padding:0 30px 0 15px;font-size:35px;color:#315096;"}
-      =link_to"http://line.me/R/msg/text/?###url###",{onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
-        .btn.fab.fa-line{style:"padding:0 30px 0 0;font-size:35px;color:#00c300;"}
-      =link_to"https://twitter.com/intent/tweet?text&related=TwitterJP ",{onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
-        .btn.fab.fa-twitter{style:"padding:0 30px 0 0;font-size:35px;color:#00acee;"}
-      = link_to "ログアウト",destroy_user_session_path,method: :delete, class: "btn btn-dark",style:"margin-right:20px;"
+  %header.admin__header
+    .logo
+      =link_to "TRIP VIETNAM", root_path
+    .toolbar{style:"padding-left:16px;"}
+      .toolbar__left
+        .dropdown
+          %button#dropdownMenu1.btn.btn-warning.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+            お気に入り
+          .dropdown-menu
+            =link_to "お気に入り単語", favorites_path, class:"dropdown-item",style:"color:#00acee;"
+            =link_to "お気に入り会話", favorite_conversations_path, class:"dropdown-item",style:"color:#00acee;"
+      .toolbar__left
+        .dropright
+          %button#dropdownMenu1.btn.btn-outline-info.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+            検索
+          .dropdown-menu
+            = search_form_for @search, url: edit_item_path(current_user) do |f|
+              = f.text_field :japanese_cont ,placeholder: '単語を検索....',class: "form-control"
+              = f.submit ("検索") , class:"btn btn-outline-info"
+            = search_form_for @search2, url: conversation_path(current_user) do |f|
+              = f.text_field :japanese_conversation_cont ,placeholder: '会話 文章を検索....',class: "form-control"
+              = f.submit ("検索") , class:"btn btn-outline-info"
+      .alert.alert-info{style:"margin-top:20px;margin-right:20px"}
+        = link_to @user.name, users_path,style:"color:#00acee;"
+        さん
+    .form-inline.my-2.my-lg-0
+      .toolbar__right
+        =link_to"https://www.facebook.com/sharer/sharer.php?u=###url###", {onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
+          .btn.fab.fa-facebook-square
+        =link_to"http://line.me/R/msg/text/?###url###",{onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
+          .btn.fab.fa-line
+        =link_to"https://twitter.com/intent/tweet?text&related=TwitterJP ",{onclick:"window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false",target:"_blank"}do
+          .btn.fab.fa-twitter
+        = link_to "ログアウト",destroy_user_session_path,method: :delete, class: "btn btn-dark",style:"margin-right:50px;"
