@@ -4,7 +4,6 @@ class FavoritesController < ApplicationController
     @user = User.find(current_user.id)
     #特定のユーザーが登録したお気に入りを全て取得する
     @favorites = Favorite.where(user_id: @user.id).all
-    # @favorites = Favorite.includes(:user).order("created_at DESC")
     @search = Item.ransack(params[:q])
     @search2 = Conversation.ransack(params[:q])
   end
