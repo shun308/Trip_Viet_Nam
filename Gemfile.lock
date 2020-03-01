@@ -189,7 +189,7 @@ GEM
       activerecord (>= 5.0)
     popper_js (1.14.5)
     public_suffix (4.0.2)
-    puma (3.12.2)
+    puma (3.12.3)
     rack (2.0.8)
     rack-pjax (1.1.0)
       nokogiri (~> 1.5)
@@ -347,7 +347,7 @@ DEPENDENCIES
   kaminari
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 5.2.4, >= 5.2.4.1)
   rails_admin
   ransack
