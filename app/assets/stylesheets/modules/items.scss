@@ -170,7 +170,6 @@ img {
         display: block;
         padding: 2rem 2rem .5rem;
         color: #76808f;
-        font-weight: 700;
     }
     
     &__divider::before {
@@ -201,7 +200,6 @@ img {
 
 .card {
     height: 100%;
-    font-weight: 300;
     background-color: #fff;
     border: 1px solid #e6eaee;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -209,7 +207,6 @@ img {
     &__header {
         padding: 20px 30px;
         border-bottom: 1px solid #e6eaee;
-        font-weight: 700;
     }
     
     &__item {
