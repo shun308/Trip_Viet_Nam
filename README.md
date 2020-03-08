@@ -13,8 +13,8 @@
 
 # :movie_camera: Demo  
 
-###        お気に入り登録　　　　  　　　 　　   　　お気に入り削除　　   　　　　 ノートタグ絞り込み  
-<img src="https://i.gyazo.com/de859f5883dcf78cbe4d1b8711316bcb.gif" width="280">   <img src="https://i.gyazo.com/d045806e824a86bf5f677d26979b11a6.gif" width="280">   <img src="https://i.gyazo.com/019ba80b08b811ad224665f9aef12cb7.gif" width="280">  
+###        お気に入り登録　　　　  　　　 　　   　　　   　　　　 ノートタグ絞り込み  
+<img src="https://i.gyazo.com/de859f5883dcf78cbe4d1b8711316bcb.gif" width="280">   <img src="https://i.gyazo.com/019ba80b08b811ad224665f9aef12cb7.gif" width="280">  
 
 # :round_pushpin: 機能  
 
@@ -24,6 +24,7 @@
 * 単語、会話集の検索機能  
 * 単語、会話集のお気に入り登録機能  
 
+※単語、会話 文章集のデータは随時追加していきます
 ※問題集、発音のデータを今後実装予定です。  
 
 # :globe_with_meridians: App URL  
