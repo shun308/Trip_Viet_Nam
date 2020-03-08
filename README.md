@@ -13,7 +13,7 @@
 
 # :movie_camera: Demo  
 
-###        　　　　　お気に入り登録　　　　  　　　 　　   　　ノートタグ絞り込み  
+###        　　　　　　お気に入り登録　　　　  　　　 　　   　ノートタグ絞り込み  
 　　　<img src="https://i.gyazo.com/de859f5883dcf78cbe4d1b8711316bcb.gif" width="280">   　　　　　　<img src="https://i.gyazo.com/019ba80b08b811ad224665f9aef12cb7.gif" width="280">  
 
 # :round_pushpin: 機能  
