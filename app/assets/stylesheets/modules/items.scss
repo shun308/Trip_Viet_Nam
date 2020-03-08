@@ -98,7 +98,7 @@ body {
         padding: calc(var(--spacing) / 2);
 
         &--full {
-            height:500px;
+            height:330px;
             flex-basis: 100%;
             grid-column: 1 / -1;
         }
